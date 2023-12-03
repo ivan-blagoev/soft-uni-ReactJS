@@ -10,12 +10,14 @@ import Logout from "./components/logout/Logout"
 import Register from "./components/register/Register"
 
 import { Routes, Route } from 'react-router-dom';
+import { AuthProvider } from './contexts/authContext';
 
 function App() {
   
   return (
     
-  <div className="container-xxl bg-white p-0">
+  <AuthProvider>
+    <div className="container-xxl bg-white p-0">
 
   < Navbar />
 
@@ -37,7 +39,7 @@ function App() {
   < Footer />
 
   </div>
-
+  </AuthProvider>
   )
 }
 

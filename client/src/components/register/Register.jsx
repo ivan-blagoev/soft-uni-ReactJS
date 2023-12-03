@@ -3,6 +3,7 @@ import { useContext } from "react";
 import AuthContext from "../../contexts/authContext";
 import useForm from "../../hooks/useForm";
 
+
 const RegisterFormKeys = {
     Email: 'email',
     Password: 'password',
