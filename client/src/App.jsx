@@ -8,9 +8,11 @@ import Contact from "./components/contact/Contact"
 import Login from "./components/login/Login"
 import Logout from "./components/logout/Logout"
 import Register from "./components/register/Register"
+import PropertiesCreate from "./components/properties-create/PropertiesCreate"
 
 import { Routes, Route } from 'react-router-dom';
 import { AuthProvider } from './contexts/authContext';
+
 
 function App() {
   
@@ -31,6 +33,13 @@ function App() {
 
      <Route path="/properties" element= { <>< Searchbar /> <PropertiesList/> </> } />
 
+     <Route path="/login" element= {< Login />} />
+
+     <Route path="/logout" element= {< Logout />} />
+     
+     <Route path="/register" element= {< Register />} />
+
+     <Route path="/properties/create" element= {< PropertiesCreate />} />
      
 
   </Routes>
