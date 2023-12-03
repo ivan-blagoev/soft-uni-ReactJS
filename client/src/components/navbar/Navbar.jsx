@@ -18,7 +18,7 @@ export default function NavBar() {
         style={{ width: 30, height: 30 }}
       />
     </div>
-    <h1 className="m-0 text-primary">Makaan</h1>
+    <h1 className="m-0 text-primary">iEstate</h1>
   </a>
   <button
     type="button"
@@ -33,48 +33,23 @@ export default function NavBar() {
       <a href="index.html" className="nav-item nav-link active">
         Home
       </a>
-      <a href="about.html" className="nav-item nav-link">
+      <a href="About.jsx" className="nav-item nav-link">
         About
       </a>
-      <div className="nav-item dropdown">
-        <a
-          href="#"
-          className="nav-link dropdown-toggle"
-          data-bs-toggle="dropdown"
-        >
-          Property
-        </a>
-        <div className="dropdown-menu rounded-0 m-0">
-          <a href="property-list.html" className="dropdown-item">
-            Property List
-          </a>
-          <a href="property-type.html" className="dropdown-item">
-            Property Type
-          </a>
-          <a href="property-agent.html" className="dropdown-item">
-            Property Agent
-          </a>
-        </div>
-      </div>
-      <div className="nav-item dropdown">
-        <a
-          href="#"
-          className="nav-link dropdown-toggle"
-          data-bs-toggle="dropdown"
-        >
-          Pages
-        </a>
-        <div className="dropdown-menu rounded-0 m-0">
-          <a href="testimonial.html" className="dropdown-item">
-            Testimonial
-          </a>
-          <a href="404.html" className="dropdown-item">
-            404 Error
-          </a>
-        </div>
-      </div>
+      <a href="About.jsx" className="nav-item nav-link">
+        Properties
+      </a>
       <a href="contact.html" className="nav-item nav-link">
         Contact
+      </a>
+      <a href="About.jsx" className="nav-item nav-link">
+        Login
+      </a>
+      <a href="About.jsx" className="nav-item nav-link">
+        Register
+      </a>
+      <a href="About.jsx" className="nav-item nav-link">
+        Logout
       </a>
     </div>
     <a href="" className="btn btn-primary px-3 d-none d-lg-flex">
