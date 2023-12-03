@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 
 export default function NavBar() {
   
@@ -7,7 +8,7 @@ export default function NavBar() {
 <div className="container-fluid nav-bar bg-transparent">
 <nav className="navbar navbar-expand-lg bg-white navbar-light py-0 px-4">
   <a
-    href="index.html"
+    href="/"
     className="navbar-brand d-flex align-items-center text-center"
   >
     <div className="icon p-2 me-2">
@@ -30,31 +31,31 @@ export default function NavBar() {
   </button>
   <div className="collapse navbar-collapse" id="navbarCollapse">
     <div className="navbar-nav ms-auto">
-      <a href="index.html" className="nav-item nav-link active">
+      <Link to="/" className="nav-item nav-link active">
         Home
-      </a>
-      <a href="About.jsx" className="nav-item nav-link">
+      </Link>
+      <Link to="/about" className="nav-item nav-link">
         About
-      </a>
-      <a href="About.jsx" className="nav-item nav-link">
+      </Link>
+      <Link to="/properties" className="nav-item nav-link">
         Properties
-      </a>
-      <a href="contact.html" className="nav-item nav-link">
+      </Link>
+      <Link to="/contacts" className="nav-item nav-link">
         Contact
-      </a>
-      <a href="About.jsx" className="nav-item nav-link">
+      </Link>
+      <Link to="/login" className="nav-item nav-link">
         Login
-      </a>
-      <a href="About.jsx" className="nav-item nav-link">
+      </Link>
+      <Link to="/register" className="nav-item nav-link">
         Register
-      </a>
-      <a href="About.jsx" className="nav-item nav-link">
+      </Link>
+      <Link to="/logout" className="nav-item nav-link">
         Logout
-      </a>
+      </Link>
     </div>
-    <a href="" className="btn btn-primary px-3 d-none d-lg-flex">
+    <Link to="/properties/create" className="btn btn-primary px-3 d-none d-lg-flex">
       Add Property
-    </a>
+    </Link>
   </div>
 </nav>
 </div>

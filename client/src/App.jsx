@@ -5,6 +5,8 @@ import About from "./components/about/About"
 import PropertiesList from "./components/properties-list/PropertiesList"
 import Footer from "./components/footer/Footer"
 
+import { Routes, Route } from 'react-router-dom';
+
 function App() {
   
   return (
@@ -13,12 +15,16 @@ function App() {
 
   < Navbar />
 
-  < GetStarted />
+  <Routes>
+    
+     <Route path="/" element ={< GetStarted /> } /> 
 
-  < About />
+     <Route path="/about" element= {< About />} />
 
-  < Searchbar />
-  < PropertiesList />
+     <Route path="/properties" element= { <>< Searchbar /> <PropertiesList/> </> } />
+
+  </Routes>
+
 
   < Footer />
 
