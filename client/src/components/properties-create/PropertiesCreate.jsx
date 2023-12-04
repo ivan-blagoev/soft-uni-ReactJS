@@ -1,4 +1,11 @@
+import { useNavigate } from 'react-router-dom';
+
+
+
+
 export default function PropertiesCreate() {
+
+
   return (
     <div className="container-xxl py-5">
       <div className="container">
@@ -7,7 +14,7 @@ export default function PropertiesCreate() {
             <img src="img/about.jpg" />
           </div>
           <div className="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
-            <form>
+            <form id="create" >
               <div className="row g-3">
                 <div className="col-md-6">
                   <div className="form-floating">
@@ -16,6 +23,7 @@ export default function PropertiesCreate() {
                       className="form-control"
                       id="title"
                       placeholder="Title"
+                      name = "title"
                     />
                     <label htmlFor="name">Title</label>
                   </div>
@@ -38,6 +46,7 @@ export default function PropertiesCreate() {
                       className="form-control"
                       id="bedroomNum"
                       placeholder="bedroomNum"
+                      name = "bedroomNum"
                     />
                     <label htmlFor="name">Number of Bedrooms</label>
                   </div>
@@ -61,18 +70,20 @@ export default function PropertiesCreate() {
                       className="form-control"
                       id="type"
                       placeholder="type"
+                      name = "type"
                     />
                   <label htmlFor="name">Property Type</label>
                 
                   </div>
                 </div>
-                <div className="col-12">
+                <div className="col-md-6">
                   <div className="form-floating">
                     <input
                       type="text"
                       className="form-control"
                       id="address"
                       placeholder="Address"
+                      name = "address"
                     />
                     <label htmlFor="email">Property Address</label>
                   </div>
@@ -82,22 +93,24 @@ export default function PropertiesCreate() {
                     <input
                       type="text"
                       className="form-control"
-                      id="subject"
-                      placeholder="Subject"
+                      id="image"
+                      placeholder="Image"
+                      name = "imageURL"
                     />
-                    <label htmlFor="subject">Subject</label>
+                    <label htmlFor="subject">Image URL</label>
                   </div>
                 </div>
                 <div className="col-12">
                   <div className="form-floating">
                     <textarea
                       className="form-control"
-                      placeholder="Leave a message here"
-                      id="message"
+                      placeholder="Description"
+                      id="description"
+                      name ="description"
                       style={{ height: 150 }}
                       defaultValue={""}
                     />
-                    <label htmlFor="message">Message</label>
+                    <label htmlFor="message">Property Description</label>
                   </div>
                 </div>
                 <div className="col-12">
