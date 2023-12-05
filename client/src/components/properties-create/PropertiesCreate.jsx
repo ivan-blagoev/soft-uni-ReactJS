@@ -1,23 +1,40 @@
 import { useNavigate } from 'react-router-dom';
 
-
+import { create } from '../../services/propertyService';
 
 
 export default function PropertiesCreate() {
 
+  const navigate = useNavigate();
+    
+  const createGameSubmitHandler = async (e) => {
+      e.preventDefault();
+
+      const propertyData = Object.fromEntries(new FormData(e.currentTarget));
+
+      try {
+          await create(propertyData);
+
+          navigate('/properties');
+      } catch (err) {
+          // Error notification
+          console.log(err);
+      }
+  }
 
 
 
-  
   return (
     <div className="container-xxl py-5">
-      <div className="container">
-        <div className="row g-5 align-items-center">
-          <div className="col-lg-6 ">
-            <img src="img/about.jpg" />
+    <div className="container">
+      <div className="row g-5 align-items-center">
+        <div className="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
+          <div className="about-img position-relative overflow-hidden p-5 pe-0">
+            <img className="img-fluid w-100" src="/img/creatHouse.jpg" />
           </div>
+        </div>
           <div className="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
-            <form id="create" >
+            <form id="create" onSubmit={createGameSubmitHandler}>
               <div className="row g-3">
                 <div className="col-md-6">
                   <div className="form-floating">
@@ -38,6 +55,7 @@ export default function PropertiesCreate() {
                       className="form-control"
                       id="price"
                       placeholder="price"
+                      name="price"
                     />
                     <label htmlFor="name">Price</label>
                   </div>
@@ -61,6 +79,7 @@ export default function PropertiesCreate() {
                       className="form-control"
                       id="bathNum"
                       placeholder="bathNum"
+                      name="bathNum"
                     />
                     <label htmlFor="name">Number of Baths</label>
                   </div>
