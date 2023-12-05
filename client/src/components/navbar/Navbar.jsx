@@ -1,7 +1,14 @@
+import { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import AuthContext from '../../contexts/authContext';
 
 export default function NavBar() {
   
+  const {
+    isAuthenticated,
+    username,
+} = useContext(AuthContext);
+
 
   return (
 
@@ -43,15 +50,22 @@ export default function NavBar() {
       <Link to="/contacts" className="nav-item nav-link">
         Contact
       </Link>
+
+      {!isAuthenticated && (
       <Link to="/login" className="nav-item nav-link">
         Login
-      </Link>
+      </Link>)}
+
+      {!isAuthenticated && (
       <Link to="/register" className="nav-item nav-link">
         Register
-      </Link>
+      </Link>)}
+
+      {isAuthenticated && (
       <Link to="/logout" className="nav-item nav-link">
         Logout
-      </Link>
+      </Link>)}
+
     </div>
     <Link to="/properties/create" className="btn btn-primary px-3 d-none d-lg-flex">
       Add Property

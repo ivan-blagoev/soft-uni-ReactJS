@@ -6,6 +6,9 @@ import { useNavigate } from 'react-router-dom';
 export default function PropertiesCreate() {
 
 
+
+
+  
   return (
     <div className="container-xxl py-5">
       <div className="container">

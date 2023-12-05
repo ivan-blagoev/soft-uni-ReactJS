@@ -24,7 +24,7 @@ export default function Login() {
           <div className="row g-5 align-items-center">
             
             <div className="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
-              <form id="create" >
+              <form id="login" onSubmit={onSubmit}>
 
               <div className="brand-logo"></div>
                   <h1>Login</h1>
