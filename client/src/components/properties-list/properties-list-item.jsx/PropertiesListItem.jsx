@@ -43,7 +43,7 @@ export default function PropertiesListItem({
           <div className="d-flex border-top">
             <small className="flex-fill text-center border-end py-2">
               <i className="fa fa-ruler-combined text-primary me-2" />
-              {price}
+              {"$" +price}
             </small>
             <small className="flex-fill text-center border-end py-2">
               <i className="fa fa-bed text-primary me-2" />{bedroomNum + " Bed"} 

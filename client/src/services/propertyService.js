@@ -14,3 +14,12 @@ export const create = async (propertyData) => {
 
     return result;
 };
+
+export const getOneProperty = async (propertyId) => {
+    const result = await request.get(`${baseUrl}/${propertyId}`, );
+
+    return result;
+}
+
+
+export const remove = async (propertyId) => request.remove(`${baseUrl}/${propertyId}`);
