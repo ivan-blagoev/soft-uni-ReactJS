@@ -10,45 +10,64 @@ import Path from "../../paths";
 
 export default function PropertyDetails() {
 
+    const navigate = useNavigate();
+    const { email, userId } = useContext(AuthContext);
+    const [property, setProperty] = useState({});
+    const { propertyId } = useParams();
 
+    useEffect(() => {
+        propertyService.getOneProperty(propertyId)
+            .then(setProperty);
+    }, [propertyId]);
 
+    
 
+    const deleteButtonClickHandler = async () => {
+        const hasConfirmed = confirm(`Are you sure you want to delete ${property.title}`);
 
+        if (hasConfirmed) {
+            await propertyService.remove(propertyId);
+
+            navigate('/properties');
+        }
+    }
+
+  
     return (
       <div className="container-xxl py-5">
         <div className="container"> 
           <div className="row g-5 align-items-center">
             <div className="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
               <div className="about-img position-relative overflow-hidden p-5 pe-0">
-                <img className="img-fluid w-100" src="img/about.jpg" />
+                <img className="img-fluid w-100" src={property.imageURL} />
               </div>
             </div>
             <div className="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
-              <h1 className="mb-4">#1 Place To Find The Perfect Property</h1>
+              <h1 className="mb-4">{property.title}</h1>
               <p className="mb-4">
-                Our website stands as the #1 place to find the perfect property
-                due to its extensive and diverse range of property listings.
-                Explore a vast collection of homes, apartments, and estates, each
-                meticulously curated to cater to different preferences and needs.
-                From cozy urban dwellings to luxurious countryside estates, our
-                platform ensures that you have access to a comprehensive
-                selection, making it effortless to find the property that aligns
-                with your vision of a dream home.
+                {property.description}
               </p>
               <p>
                 <i className="fa fa-check text-primary me-3" />
-                Comprehensive Property Listings
+                {"Property Type: " + property.type}
               </p>
               <p>
                 <i className="fa fa-check text-primary me-3" />
-                Expert Guidance and Insights:
+                {"Property Price: " + property.price}
               </p>
               <p>
                 <i className="fa fa-check text-primary me-3" />
-                Exclusive Access to Off-Market Opportunities
+                {"Bathrooms: " + property.bathNum}
               </p>
+              <p>
+                <i className="fa fa-check text-primary me-3" />
+                {"Bedrooms: " + property.bedroomNum}
+              </p>
+              <a className="btn btn-primary py-3 px-5 mt-3" href="" style ={{marginRight:"20px"}}>
+                Edit
+              </a>
               <a className="btn btn-primary py-3 px-5 mt-3" href="">
-                Read More
+                Delete
               </a>
             </div>
           </div>
