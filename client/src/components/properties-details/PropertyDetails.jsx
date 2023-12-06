@@ -63,7 +63,15 @@ export default function PropertyDetails() {
                 <i className="fa fa-check text-primary me-3" />
                 {"Bedrooms: " + property.bedroomNum}
               </p>
-              <a className="btn btn-primary py-3 px-5 mt-3" href="" style ={{marginRight:"20px"}}>
+              <p>
+                <i className="fa fa-check text-primary me-3" />
+                {"Address: " + property.address}
+              </p>
+              <p>
+                <i className="fa fa-check text-primary me-3" />
+                {"Price: $" + property.price}
+              </p>
+              <a className="btn btn-primary py-3 px-5 mt-3" href={`/properties/${propertyId}/edit`} style ={{marginRight:"20px"}}>
                 Edit
               </a>
               <a className="btn btn-primary py-3 px-5 mt-3" href="">

@@ -10,10 +10,12 @@ import Logout from "./components/logout/Logout"
 import Register from "./components/register/Register"
 import PropertiesCreate from "./components/properties-create/PropertiesCreate"
 import PropertyDetails from "./components/properties-details/PropertyDetails"
+import PropertyEdit from "./components/properties-edit/PropertyEdit"
 
 import { Routes, Route } from 'react-router-dom';
 import { AuthProvider } from './contexts/authContext';
 import Path from './paths';
+
 
 
 function App() {
@@ -33,7 +35,7 @@ function App() {
 
      <Route path="/about" element= {< About />} />
 
-     <Route path="/properties" element= { <>< Searchbar /> <PropertiesList/> </> } />
+     <Route path="/properties" element= { <> <PropertiesList/> </> } />
 
      <Route path="/login" element= {< Login />} />
 
@@ -44,6 +46,8 @@ function App() {
      <Route path="/properties/create" element= {< PropertiesCreate />} />
 
      <Route path={Path.PropertyDetails} element= {< PropertyDetails />} />
+
+     <Route path={Path.PropertyEdit} element= {< PropertyEdit />} />
      
 
   </Routes>

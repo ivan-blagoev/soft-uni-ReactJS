@@ -18,6 +18,43 @@ export default function PropertiesList() {
 
 
   return (
+    <div>
+    <div
+    className="container-fluid bg-primary mb-5 wow fadeIn"
+    data-wow-delay="0.1s"
+    style={{ padding: 35 }}
+  >
+    <div className="container">
+      <div className="row g-2">
+        <div className="col-md-10">
+          <div className="row g-2">
+            <div className="col-md-6">
+              <input
+                type="text"
+                className="form-control border-0 py-3"
+                placeholder="Search Keyword"
+              />
+            </div>
+            <div className="col-md-6">
+              <select className="form-select border-0 py-3">
+                <option selected="">Property Type</option>
+                <option value={1}>Property Type 1</option>
+                <option value={2}>Property Type 2</option>
+                <option value={3}>Property Type 3</option>
+              </select>
+            </div>
+            
+          </div>
+        </div>
+        <div className="col-md-2">
+          <button className="btn btn-dark border-0 w-100 py-3">Search</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
 
     <div className="container-xxl py-5">
       <div className="container">
@@ -89,7 +126,7 @@ export default function PropertiesList() {
         </div>
       </div>
     </div>
-
+    </div>
 
   )
 }

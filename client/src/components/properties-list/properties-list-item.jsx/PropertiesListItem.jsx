@@ -32,7 +32,7 @@ export default function PropertiesListItem({
           </div>
           <div className="p-4 pb-0">
             <h5 className="text-primary mb-3">{"$" + price}</h5>
-            <a className="d-block h5 mb-2" href="">
+            <a className="d-block h5 mb-2" href={`/properties/${_id}/details`}>
               {title}
             </a>
             <p>

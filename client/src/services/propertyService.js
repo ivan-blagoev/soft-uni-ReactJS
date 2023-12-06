@@ -22,4 +22,12 @@ export const getOneProperty = async (propertyId) => {
 }
 
 
+export const editProperty = async (propertyId, propertyData) => {
+    const result = await request.put(`${baseUrl}/${propertyId}`, propertyData);
+
+    return result;
+};
+
+
+
 export const remove = async (propertyId) => request.remove(`${baseUrl}/${propertyId}`);
