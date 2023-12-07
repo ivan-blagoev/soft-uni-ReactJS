@@ -6,6 +6,7 @@ import PropertiesListItem from "./properties-list-item.jsx/PropertiesListItem";
 export default function PropertiesList() {
 
   const [search, setSearch] = useState("");
+  const [searchType, setSearchType] = useState("");
   const [filteredProperties, setFilteredProperties] = useState([]);
 
   const [properties, setProperties] = useState([]);
@@ -32,11 +33,27 @@ export default function PropertiesList() {
     setFilteredProperties(filtered);
   }, [search, properties]);
 
-console.log(properties)
-console.log(filteredProperties)
+
+  useEffect(() => {
+    // Filter properties when the search term changes
+    const filtered = properties.filter((property) =>
+      property.type.toLowerCase().includes(searchType.toLowerCase())
+    );
+    setFilteredProperties(filtered);
+  }, [searchType, properties]);
+
+
+
+
+
 console.log(search)
+console.log(searchType)
 
 
+const typeSearchStyle ={
+  color:'White',
+  hover:{ backgroundColor: "White"}
+}
 
   return (
     <div>
@@ -49,14 +66,22 @@ console.log(search)
           <div className="row g-2">
             <div className="col-md-10">
               <div className="row g-2">
-                <div className="col-md-12">
+                <div className="col-md-6">
                   <input onChange={(e) => {setSearch(e.target.value)}}
                     type="text"
                     className="form-control border-0 py-3"
-                    placeholder="Search Keyword"
+                    placeholder="Search Properties by Title"
                   />
                 </div>
+             <div className="col-md-6">
+              <select className="form-select border-0 py-3" onChange={(e) => {setSearchType(e.target.value)}}  placeholder="Filter by Type">
              
+                <option value={""} style={typeSearchStyle}>Filter by type</option>
+                <option value={"House"}>House</option>
+                <option value={"Villa"}>Villa</option>
+                <option value={"Apartament"}>Apartament</option>
+              </select>
+            </div>
               </div>
             </div>
            

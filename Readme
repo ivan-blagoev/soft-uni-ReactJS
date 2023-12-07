@@ -1,1 +1,30 @@
-Working on Soft Uni React course project
+React Website Documentation
+Getting Started
+Clone the repository: git clone <repository-url>
+Install dependencies: npm install
+Start the development server: node ./server.js
+Open in the browser: npm run dev --> http://localhost:5173/
+Folder Structure
+src/
+components/
+contexts/
+services/
+operations/
+utils/
+App.jsx
+main.jsx
+index.html
+Dependencies
+react
+react-router-dom
+styled-components
+prop-types
+Components
+Reusable React components in components/
+Routing
+Declarative routing using react-router-dom.
+State Management
+Local component state managed with useState.
+Styling
+Styling with styled-components for encapsulation.
+API Integration
