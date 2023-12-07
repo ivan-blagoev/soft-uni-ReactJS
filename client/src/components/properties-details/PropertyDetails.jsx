@@ -21,6 +21,7 @@ export default function PropertyDetails() {
     }, [propertyId]);
 
     
+    
 
     const deleteButtonClickHandler = async () => {
         const hasConfirmed = confirm(`Are you sure you want to delete ${property.title}`);
@@ -71,12 +72,16 @@ export default function PropertyDetails() {
                 <i className="fa fa-check text-primary me-3" />
                 {"Price: $" + property.price}
               </p>
-              <a className="btn btn-primary py-3 px-5 mt-3" href={`/properties/${propertyId}/edit`} style ={{marginRight:"20px"}}>
+
+              {property._ownerId === userId &&(
+              <Link className="btn btn-primary py-3 px-5 mt-3" to={pathToUrl(Path.PropertyEdit, { propertyId })} style ={{marginRight:"20px"}}>
                 Edit
-              </a>
-              <a className="btn btn-primary py-3 px-5 mt-3" href="">
+              </Link>)}
+
+              {property._ownerId === userId &&(
+              <Link className="btn btn-primary py-3 px-5 mt-3" onClick={deleteButtonClickHandler} to={pathToUrl(Path.PropertyDelete, { propertyId })}>
                 Delete
-              </a>
+              </Link>)}
             </div>
           </div>
         </div>

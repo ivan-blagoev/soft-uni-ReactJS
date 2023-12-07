@@ -31,3 +31,22 @@ export const editProperty = async (propertyId, propertyData) => {
 
 
 export const remove = async (propertyId) => request.remove(`${baseUrl}/${propertyId}`);
+
+
+export const search = async (searchName, searchType) => {
+    
+    let properties = await this.getAllProperties()
+
+    if(searchName){
+        properties = properties.filter( x => x.title == searchName)
+    }
+
+    if( searchType){
+        properties =  properties.filter(x => x.type == searchType)
+
+    }
+
+    return properties;
+}
+
+

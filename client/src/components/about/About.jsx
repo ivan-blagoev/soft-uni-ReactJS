@@ -32,9 +32,7 @@ export default function About() {
               <i className="fa fa-check text-primary me-3" />
               Exclusive Access to Off-Market Opportunities
             </p>
-            <a className="btn btn-primary py-3 px-5 mt-3" href="">
-              Read More
-            </a>
+           
           </div>
         </div>
       </div>

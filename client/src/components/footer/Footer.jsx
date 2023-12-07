@@ -1,3 +1,7 @@
+import { Link } from "react-router-dom"
+
+
+
 export default function Footer (){
 
 return(
@@ -39,21 +43,17 @@ return(
         </div>
         <div className="col-lg-3 col-md-6">
           <h5 className="text-white mb-4">Quick Links</h5>
-          <a className="btn btn-link text-white-50" href="">
+          <Link className="btn btn-link text-white-50" to="/about">
             About Us
-          </a>
-          <a className="btn btn-link text-white-50" href="">
-            Contact Us
-          </a>
-          <a className="btn btn-link text-white-50" href="">
-            Our Services
-          </a>
-          <a className="btn btn-link text-white-50" href="">
-            Privacy Policy
-          </a>
-          <a className="btn btn-link text-white-50" href="">
-            Terms &amp; Condition
-          </a>
+          </Link>
+          <Link className="btn btn-link text-white-50" to="/contacts">
+            Contact us
+            </Link>
+          <Link className="btn btn-link text-white-50" to="/properties">
+           Properties
+            </Link>
+          
+        
         </div>
         <div className="col-lg-3 col-md-6">
           <h5 className="text-white mb-4">Photo Gallery</h5>

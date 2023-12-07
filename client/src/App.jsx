@@ -11,10 +11,12 @@ import Register from "./components/register/Register"
 import PropertiesCreate from "./components/properties-create/PropertiesCreate"
 import PropertyDetails from "./components/properties-details/PropertyDetails"
 import PropertyEdit from "./components/properties-edit/PropertyEdit"
+import Error404 from "./components/404/Error404"
 
 import { Routes, Route } from 'react-router-dom';
 import { AuthProvider } from './contexts/authContext';
 import Path from './paths';
+
 
 
 
@@ -48,6 +50,9 @@ function App() {
      <Route path={Path.PropertyDetails} element= {< PropertyDetails />} />
 
      <Route path={Path.PropertyEdit} element= {< PropertyEdit />} />
+
+     <Route path="/404" element= {< Error404 />} />
+
      
 
   </Routes>

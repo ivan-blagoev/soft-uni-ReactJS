@@ -67,9 +67,12 @@ export default function NavBar() {
       </Link>)}
 
     </div>
+
+    {isAuthenticated && (
     <Link to="/properties/create" className="btn btn-primary px-3 d-none d-lg-flex">
       Add Property
-    </Link>
+    </Link>)}
+
   </div>
 </nav>
 </div>
