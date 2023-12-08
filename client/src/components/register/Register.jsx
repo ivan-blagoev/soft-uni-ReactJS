@@ -1,7 +1,9 @@
+import React, { useState } from "react";
 import { useContext } from "react";
-
 import AuthContext from "../../contexts/authContext";
 import useForm from "../../hooks/useForm";
+
+
 
 const RegisterFormKeys = {
   Email: "email",
@@ -10,12 +12,23 @@ const RegisterFormKeys = {
 };
 
 export default function Register() {
+
+  const [errorMessage, setErrorMessage] = useState("");
   const { registerSubmitHandler } = useContext(AuthContext);
-  const { values, onChange, onSubmit } = useForm(registerSubmitHandler, {
+  const { values, onChange, onSubmit } = useForm(handleSubmit, {
     [RegisterFormKeys.Email]: "",
     [RegisterFormKeys.Password]: "",
     [RegisterFormKeys.ConfirmPassword]: "",
   });
+
+  async function handleSubmit() {
+    try {
+      setErrorMessage("");
+      await registerSubmitHandler(values);
+    } catch (error) {
+      setErrorMessage(error.message);
+    }
+  }
 
   return (
     
@@ -60,6 +73,7 @@ export default function Register() {
           <div className="col-md-12" style={{marginBottom:"15px"}}>
             <div className="form-floating">
               <input
+              
                 className="form-control"
                 type="password"
                 name="confirm-password"
@@ -78,6 +92,7 @@ export default function Register() {
               type="submit"
               value="Register"
             />
+            {errorMessage && <p className="text-danger mb-3" style={{alignContent:'center'}}>{errorMessage}</p>}
           </div>
 
           <p className="field" >
@@ -93,3 +108,5 @@ export default function Register() {
 
   );
 }
+
+

@@ -13,7 +13,7 @@ export default function Error404() {
           We’re sorry, the page you have looked for does not exist in our
           website! Maybe go to our home page or try to use a search?
         </p>
-        <a className="btn btn-primary py-3 px-5" href="">
+        <a className="btn btn-primary py-3 px-5" href="/">
           Go Back To Home
         </a>
       </div>

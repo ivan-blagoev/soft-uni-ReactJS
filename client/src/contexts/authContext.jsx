@@ -14,23 +14,40 @@ export const AuthProvider = ({
     const [auth, setAuth] = usePersistedState('auth', {});
 
     const loginSubmitHandler = async (values) => {
-        const result = await authService.login(values.email, values.password);
+       try {  const result = await authService.login(values.email, values.password);
 
         setAuth(result);
 
         localStorage.setItem('accessToken', result.accessToken);
 
-        navigate(Path.Home);
+        navigate(Path.Home);}
+        catch (error){
+            throw new Error("Invalid email or password")
+            }
     };
 
     const registerSubmitHandler = async (values) => {
+        
+        if(values.password !== values['confirm-password']){
+            throw new Error("Passwords don't match")
+        }
+
+
+        try{
+        
         const result = await authService.register(values.email, values.password);
 
         setAuth(result);
 
         localStorage.setItem('accessToken', result.accessToken);
 
-        navigate(Path.Home);
+        navigate(Path.Home);}
+
+        catch (error){
+            throw new Error("Register was not successful!")
+        }
+            
+
     };
 
     const logoutHandler = () => {

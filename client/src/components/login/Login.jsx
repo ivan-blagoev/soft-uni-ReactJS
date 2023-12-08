@@ -1,4 +1,6 @@
 import { useContext } from "react";
+import React from "react";
+import { useState } from "react";
 import useForm from "../../hooks/useForm";
 import AuthContext from "../../contexts/authContext";
 
@@ -11,10 +13,20 @@ const LoginFormKyes = {
 export default function Login() {
     
     const { loginSubmitHandler } = useContext(AuthContext);
-    const { values, onChange, onSubmit } = useForm(loginSubmitHandler, {
+    const [errorMessage, setErrorMessage] = useState("");
+    const { values, onChange, onSubmit } = useForm(handleSubmit, {
         [LoginFormKyes.Email]: '',
         [LoginFormKyes.Password]: '',
     });
+
+    async function handleSubmit() {
+      try {
+        setErrorMessage("");
+        await loginSubmitHandler(values);
+      } catch (error) {
+        setErrorMessage(error.message);
+      }
+    }
 
     return (
 
@@ -58,6 +70,7 @@ export default function Login() {
                 <button className="btn btn-primary w-100 py-3" type="submit">
                   Login
                 </button>
+                {errorMessage && <p className="text-danger mb-3" style={{alignContent:'center'}}>{errorMessage}</p>}
               </div>
             </div>
           </form>

@@ -16,6 +16,7 @@ import Error404 from "./components/404/Error404"
 import { Routes, Route } from 'react-router-dom';
 import { AuthProvider } from './contexts/authContext';
 import Path from './paths';
+import ErrorHandler from "./components/ErrorHandler"
 
 
 
@@ -24,44 +25,47 @@ function App() {
   
   return (
     
-  <AuthProvider>
-    <div className="container-xxl bg-white p-0">
+  <ErrorHandler>
 
-  < Navbar />
+    <AuthProvider>
+      <div className="container-xxl bg-white p-0">
 
-  <Routes>
+      < Navbar />
 
-     <Route path="/" element ={< GetStarted /> } /> 
+      <Routes>
 
-     <Route path="/contacts" element ={< Contact /> } />
+      <Route path="/" element ={< GetStarted /> } /> 
 
-     <Route path="/about" element= {< About />} />
+      <Route path="/contacts" element ={< Contact /> } />
 
-     <Route path="/properties" element= { <> <PropertiesList/> </> } />
+      <Route path="/about" element= {< About />} />
 
-     <Route path="/login" element= {< Login />} />
+      <Route path="/properties" element= { <> <PropertiesList/> </> } />
 
-     <Route path="/logout" element= {< Logout />} />
-     
-     <Route path="/register" element= {< Register />} />
+      <Route path="/login" element= {< Login />} />
 
-     <Route path="/properties/create" element= {< PropertiesCreate />} />
+      <Route path="/logout" element= {< Logout />} />
+      
+      <Route path="/register" element= {< Register />} />
 
-     <Route path={Path.PropertyDetails} element= {< PropertyDetails />} />
+      <Route path="/properties/create" element= {< PropertiesCreate />} />
 
-     <Route path={Path.PropertyEdit} element= {< PropertyEdit />} />
+      <Route path={Path.PropertyDetails} element= {< PropertyDetails />} />
 
-     <Route path="/404" element= {< Error404 />} />
+      <Route path={Path.PropertyEdit} element= {< PropertyEdit />} />
 
-     
+      <Route path="*" element= {< Error404 />} />
 
-  </Routes>
+      
+
+      </Routes>
 
 
-  < Footer />
+      < Footer />
 
-  </div>
-  </AuthProvider>
+      </div>
+    </AuthProvider>
+  </ErrorHandler>
   )
 }
 
